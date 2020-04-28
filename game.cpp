@@ -4,7 +4,7 @@ using namespace std;
 class Board {
 
   private:
-    char board[9] = { };
+    char board[9] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
   public:
 
@@ -13,9 +13,7 @@ class Board {
     }
 
     void dispBoard() {
-      cout << "  " << 1 << ' ' << 2 << ' '<< 3 << '\n';
       for (int i=3; i<10; i+=3) {
-        cout << i/3 << ' ';
         cout << this->board[i-3] << ' ';
         cout << this->board[i-2] << ' ';
         cout << this->board[i-1] << '\n';
