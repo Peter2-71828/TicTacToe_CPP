@@ -22,8 +22,10 @@ class Board {
       }
     }
 
-    void makemove(int move) {
-      
+    void playerPrompt() {
+      int move;
+      cout << "PlayerXs Move:\n";
+      cin >> move;
     }
 
 };
@@ -31,6 +33,5 @@ class Board {
 int main() {
   Board newGame;
   cout << "Enter moves as an [x,y] coordinate array \n";
-  cout << "PlayerXs Move:\n";
-  cin >> makemove(move);
+  newGame.playerPrompt();
 }
