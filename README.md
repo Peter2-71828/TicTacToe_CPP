@@ -1,5 +1,9 @@
 # Tic-Tac-Toe tech test
 
+## How To Run
+* clone this repo and enter navigate to the base directory
+* run ```./game```
+
 ## Requirements
 
 * Your goal is to write a program that lets two humans play Tic-Tac-Toe against each other.
