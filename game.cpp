@@ -1,6 +1,17 @@
 #include <iostream>
 using namespace std;
 
+class Player {
+
+public:
+    char name;
+    Player* next;
+
+    Player(char name) {
+      name = name;
+    }
+};
+
 class Board {
 
   private:
@@ -9,7 +20,13 @@ class Board {
   public:
 
     Board() {
+      Player playerX('X');
+      Player playerO('Y');
+      playerX.next = &playerO;
+      playerO.next = &playerX;
       dispBoard();
+      cout << "Enter the number in the position you wish to play\n";
+      playerPrompt(&playerX);
     }
 
     void dispBoard() {
@@ -20,24 +37,22 @@ class Board {
       }
     }
 
-    void playerPrompt() {
+    void playerPrompt( Player* player) {
       char move;
-      cout << "PlayerXs Move:\n";
+      cout << "Player" << player->name << "s Move:\n";
       cin >> move;
-      this->makeMove(move);
+      this->makeMove(move, *player);
     }
 
-    void makeMove(char move){
+    void makeMove(char move, Player player){
       int position = move - '1';
-      this->board[position] = 'X';
+      this->board[position] = player.name;
       dispBoard();
-      playerPrompt();
+      playerPrompt(player.next);
     }
 
 };
 
 int main() {
   Board newGame;
-  cout << "Enter the number in the position you wish to play\n";
-  newGame.playerPrompt();
 }
