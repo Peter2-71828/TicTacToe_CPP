@@ -38,6 +38,6 @@ class Board {
 
 int main() {
   Board newGame;
-  cout << "Enter moves as an [x,y] coordinate array \n";
+  cout << "Enter the number in the position you wish to play\n";
   newGame.playerPrompt();
 }
