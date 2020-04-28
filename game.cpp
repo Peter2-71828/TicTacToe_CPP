@@ -23,9 +23,17 @@ class Board {
     }
 
     void playerPrompt() {
-      int move;
+      char move;
       cout << "PlayerXs Move:\n";
       cin >> move;
+      this->makeMove(move);
+    }
+
+    void makeMove(char move){
+      int position = move - '1';
+      this->board[position] = 'X';
+      dispBoard();
+      playerPrompt();
     }
 
 };
