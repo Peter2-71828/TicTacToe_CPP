@@ -7,8 +7,8 @@ public:
     char name;
     Player* next;
 
-    Player(char name) {
-      name = name;
+    Player(char XorO) {
+      name = XorO;
     }
 };
 
@@ -21,7 +21,7 @@ class Board {
 
     Board() {
       Player playerX('X');
-      Player playerO('Y');
+      Player playerO('O');
       playerX.next = &playerO;
       playerO.next = &playerX;
       dispBoard();
