@@ -14,11 +14,10 @@ public:
 
 class Board {
 
-  protected:
+protected:
     char board[9] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
-  public:
-
+public:
     void dispBoard() {
       for (int i=3; i<10; i+=3) {
         cout << this->board[i-3] << ' ';
@@ -31,8 +30,7 @@ class Board {
 
 class TicTacToe: public Board {
 
-  public: 
-
+public:
   TicTacToe(){
     Player playerX('X');
     Player playerO('O');
@@ -43,6 +41,7 @@ class TicTacToe: public Board {
     playerPrompt(&playerX);
   }
 
+private:
   void playerPrompt( Player* player) {
     char move;
     cout << "Player" << player->name << "s Move:\n";
