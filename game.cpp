@@ -58,7 +58,6 @@ public:
   }
 
   bool is_gameOver() {
-    // redundant checking should be eliminated
     char winner;
     for (int i=0; i<9; i+=4) {
       for (int n=1; n<5; n++) {
