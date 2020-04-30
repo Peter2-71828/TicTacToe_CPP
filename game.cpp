@@ -64,6 +64,8 @@ public:
               winner = board[i];
               return false;
             }
+        }else if (i!=4 && (n==2 || n==4)) {
+          continue;
         }else if (i==4) {
           if (board[i]==board[i+n] && board[i]==board[i-n]) {
             winner = board[i];
