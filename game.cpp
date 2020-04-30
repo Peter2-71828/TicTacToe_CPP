@@ -58,27 +58,23 @@ public:
     // redundant checking should be eliminated
     char winner;
     for (int i=0; i<9; i+=4) {
-      if (i==4) {
-        for (int n=1; n<5; n++) {
+      for (int n=1; n<5; n++) {
+        if (i==4) {
           if (board[i]==board[i+n] && board[i]==board[i-n]) {
             winner = board[i];
             return false;
           }
-        }
-      }else {
-        for (int z=1; z<4; z+=2) {
-          if (i==0) {
-            if (board[i]==board[i+z] && board[i]==board[i+(2*z)]) {
+        }else if (i==0) {
+            if (board[i]==board[i+n] && board[i]==board[i+(2*n)]) {
               winner = board[i];
               return false;
             }
           }else if (i==8) {
-            if (board[i]==board[i-z] && board[i]==board[i-(2*z)]) {
+            if (board[i]==board[i-n] && board[i]==board[i-(2*n)]) {
               winner = board[i];
               return false;
           }
         }
-      }
       }
     }return true;
   }
