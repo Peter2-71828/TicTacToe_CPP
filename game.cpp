@@ -10,14 +10,14 @@ public:
     Player(char XorO) {
       name = XorO;
     }
+
 };
 
 class Board {
 
-protected:
+public:
     char board[9] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
-public:
     void dispBoard() {
       for (int i=3; i<10; i+=3) {
         cout << this->board[i-3] << ' ';
@@ -28,7 +28,26 @@ public:
 
 };
 
-class TicTacToe: public Board {
+class GamePlay: protected Board {
+
+protected:
+  void playerPrompt( Player* player) {
+    char move;
+    cout << "Player" << player->name << "s Move:\n";
+    cin >> move;
+    this->updateBoard(move, *player);
+  }
+
+  void updateBoard(char move, Player player){
+    int position = move - '1';
+    this->board[position] = player.name;
+    dispBoard();
+    playerPrompt(player.next);
+  }
+
+};
+
+class TicTacToe: private GamePlay {
 
 public:
   TicTacToe(){
@@ -39,21 +58,6 @@ public:
     dispBoard();
     cout << "Enter the number in the position you wish to play\n";
     playerPrompt(&playerX);
-  }
-
-private:
-  void playerPrompt( Player* player) {
-    char move;
-    cout << "Player" << player->name << "s Move:\n";
-    cin >> move;
-    this->makeMove(move, *player);
-  }
-
-  void makeMove(char move, Player player){
-    int position = move - '1';
-    this->board[position] = player.name;
-    dispBoard();
-    playerPrompt(player.next);
   }
 
 };
