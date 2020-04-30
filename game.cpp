@@ -62,10 +62,6 @@ public:
     Player playerO('O');
     playerX.next = &playerO;
     playerO.next = &playerX;
-    play(playerX);
-  }
-
-  void play(Player playerX) {
     dispBoard();
     cout << "Enter the number in the position you wish to play\n";
     playerPrompt(&playerX);
