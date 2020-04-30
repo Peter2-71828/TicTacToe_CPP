@@ -30,7 +30,7 @@ public:
   TicTacToe(){
     cout << "Enter the number in the position you wish to play\n";
     dispBoard();
-    while(true) {
+    while(is_gameOver()) {
       promptPlayer(playerX);
       promptPlayer(playerO);
     }
@@ -54,6 +54,26 @@ public:
     }
   }
 
+  bool is_gameOver() {
+    char winner;
+    for (int i=0; i<9; i+=4) {
+      for (int n=1; n<5; n++) {
+        if (n == 2) {
+          continue;
+        }else if (board[i] == board[i+n]){
+          if (i==0) {
+            if (board[i] == board[i+(n*2)]){
+              winner = board[i];
+              return false;
+            };
+          }else if (board[i] == board[i-n]){
+            winner = board[i];
+            return false;
+          }
+        }
+      }
+    }return true;
+  }
 };
 
 int main() {
