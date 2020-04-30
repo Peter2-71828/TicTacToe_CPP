@@ -35,6 +35,36 @@ public:
       int position = move - '1';
       if (board[position] == move) {
         updateBoard(position, player);
+      }
     }
 
 };
+
+class TicTacToe {
+
+public:
+  TicTacToe(){
+    startGame();
+    dispBoard();
+    playerPrompt(&playerX);
+  }
+
+  void startGame() {
+    Player playerX('X');
+    Player playerO('O');
+    playerX.next = &playerO;
+    playerO.next = &playerX;
+    cout << "Enter the number in the position you wish to play\n";
+  }
+
+  void promptPlayers( Player* player) {
+    char move;
+    cout << "Player" << player->name << "s Move:\n";
+    cin >> move;
+  }
+
+};
+
+int main() {
+  TicTacToe();
+}
