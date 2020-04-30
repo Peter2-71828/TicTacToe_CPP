@@ -60,6 +60,7 @@ public:
     char move;
     cout << "Player" << player->name << "s Move:\n";
     cin >> move;
+    is_valid(move, *player);
   }
 
 };
