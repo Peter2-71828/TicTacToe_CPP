@@ -3,6 +3,8 @@
 ## How To Run
 * clone this repo and enter navigate to the base directory
 * run ```./game```
+* 2 Players, PlayerX and PlayerY will be prompted to make moves
+* Each move enter the number correlating to the position you wish to occupy and hit Enter
 
 ## Requirements
 
