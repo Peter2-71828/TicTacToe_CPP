@@ -60,13 +60,13 @@ private:
     char winner;
     for (int i=0; i<9; i+=4) {
       for (int n=1; n<5; n++) {
-        if (i==0) {
-            if (board[i]==board[i+n] && board[i]==board[i+(2*n)]) {
-              winner = board[i];
-              return false;
-            }
-        }else if (i!=4 && (n==2 || n==4)) {
+        if (i!=4 && (n==2 || n==4)) {
           continue;
+        }else if (i==0) {
+          if (board[i]==board[i+n] && board[i]==board[i+(2*n)]) {
+            winner = board[i];
+            return false;
+          }
         }else if (i==4) {
           if (board[i]==board[i+n] && board[i]==board[i-n]) {
             winner = board[i];
