@@ -35,16 +35,12 @@ class TicTacToe: public Board {
 
 public:
   TicTacToe(){
-    startGame();
+    cout << "Enter the number in the position you wish to play\n";
     dispBoard();
     while(true) {
       promptPlayer(playerX);
       promptPlayer(playerO);
     }
-  }
-
-  void startGame() {
-    cout << "Enter the number in the position you wish to play\n";
   }
 
   void promptPlayer( char player) {
