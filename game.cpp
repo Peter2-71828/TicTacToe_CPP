@@ -7,10 +7,6 @@ public:
     char name;
     Player* next;
 
-    Player(char XorO) {
-      name = XorO;
-    }
-
 };
 
 class Board {
@@ -31,7 +27,7 @@ public:
       dispBoard();
     }
 
-    bool is_valid(char move, Player player) {
+    void is_valid(char move, Player player) {
       int position = move - '1';
       if (board[position] == move) {
         updateBoard(position, player);
@@ -40,24 +36,27 @@ public:
 
 };
 
-class TicTacToe {
+class TicTacToe: public Board {
+// update access specifiers
+  Player playerX;
+  Player playerO;
 
 public:
   TicTacToe(){
     startGame();
     dispBoard();
-    playerPrompt(&playerX);
+    promptPlayer(&playerX);
   }
 
   void startGame() {
-    Player playerX('X');
-    Player playerO('O');
+    playerX.name = 'X';
+    playerO.name = 'O';
     playerX.next = &playerO;
     playerO.next = &playerX;
     cout << "Enter the number in the position you wish to play\n";
   }
 
-  void promptPlayers( Player* player) {
+  void promptPlayer( Player* player) {
     char move;
     cout << "Player" << player->name << "s Move:\n";
     cin >> move;
