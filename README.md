@@ -5,6 +5,7 @@
 * run ```./game```
 * 2 Players, PlayerX and PlayerY will be prompted to make moves
 * Each move enter the number correlating to the position you wish to occupy and hit Enter
+* If you enter a number longer than 1 character the first character will be taken as your input
 
 ## Requirements
 
