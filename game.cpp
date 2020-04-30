@@ -19,13 +19,6 @@ public:
       dispBoard();
     }
 
-    void is_valid(char move, char player) {
-      int position = move - '1';
-      if (board[position] == move) {
-        updateBoard(position, player);
-      }
-    }
-
 };
 
 class TicTacToe: public Board {
@@ -48,6 +41,17 @@ public:
     cout << "Player" << player << "s Move:\n";
     cin >> move;
     is_valid(move, player);
+  }
+
+  void is_valid(char move, char player) {
+    int position = move - '1';
+    if (board[position] == move) {
+      updateBoard(position, player);
+    }
+    else {
+      cout << "Invalid move try again";
+      promptPlayer(player);
+    }
   }
 
 };
