@@ -1,14 +1,6 @@
 #include <iostream>
 using namespace std;
 
-class Player {
-
-public:
-    char name;
-    Player* next;
-
-};
-
 class Board {
 
 public:
@@ -22,12 +14,12 @@ public:
       }
     }
 
-    void updateBoard(int position, Player player){
-      this->board[position] = player.name;
+    void updateBoard(int position, char player){
+      this->board[position] = player;
       dispBoard();
     }
 
-    void is_valid(char move, Player player) {
+    void is_valid(char move, char player) {
       int position = move - '1';
       if (board[position] == move) {
         updateBoard(position, player);
@@ -38,32 +30,28 @@ public:
 
 class TicTacToe: public Board {
 // update access specifiers
-  Player playerX;
-  Player playerO;
+  char playerX = 'X';
+  char playerO = 'O';
 
 public:
   TicTacToe(){
     startGame();
     dispBoard();
     while(true) {
-      promptPlayer(&playerX);
-      promptPlayer(&playerO);
+      promptPlayer(playerX);
+      promptPlayer(playerO);
     }
   }
 
   void startGame() {
-    playerX.name = 'X';
-    playerO.name = 'O';
-    playerX.next = &playerO;
-    playerO.next = &playerX;
     cout << "Enter the number in the position you wish to play\n";
   }
 
-  void promptPlayer( Player* player) {
+  void promptPlayer( char player) {
     char move;
-    cout << "Player" << player->name << "s Move:\n";
+    cout << "Player" << player << "s Move:\n";
     cin >> move;
-    is_valid(move, *player);
+    is_valid(move, player);
   }
 
 };
