@@ -32,6 +32,9 @@ public:
     dispBoard();
     while(is_gameOver()) {
       promptPlayer(playerX);
+      if (is_gameOver()!=true) {
+        break;
+      }
       promptPlayer(playerO);
     }
   }
