@@ -45,7 +45,10 @@ public:
   TicTacToe(){
     startGame();
     dispBoard();
-    promptPlayer(&playerX);
+    while(true) {
+      promptPlayer(&playerX);
+      promptPlayer(&playerO);
+    }
   }
 
   void startGame() {
