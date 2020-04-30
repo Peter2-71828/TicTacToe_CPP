@@ -3,7 +3,7 @@ using namespace std;
 
 class Board {
 
-public:
+protected:
     char board[9] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
     void dispBoard() {
@@ -21,11 +21,7 @@ public:
 
 };
 
-class TicTacToe: public Board {
-// update access specifiers
-  char playerX = 'X';
-  char playerO = 'O';
-
+class TicTacToe: private Board {
 public:
   TicTacToe(){
     cout << "Enter the number in the position you wish to play\n";
@@ -38,6 +34,9 @@ public:
       promptPlayer(playerO);
     }
   }
+private:
+  char playerX = 'X';
+  char playerO = 'O';
 
   void promptPlayer( char player) {
     string move;
