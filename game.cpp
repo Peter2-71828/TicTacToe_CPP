@@ -31,4 +31,10 @@ public:
       dispBoard();
     }
 
+    bool is_valid(char move, Player player) {
+      int position = move - '1';
+      if (board[position] == move) {
+        updateBoard(position, player);
+    }
+
 };
