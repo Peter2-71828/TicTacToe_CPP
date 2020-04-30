@@ -37,10 +37,10 @@ public:
   }
 
   void promptPlayer( char player) {
-    char move;
+    string move;
     cout << "Player" << player << "s Move:\n";
     cin >> move;
-    is_valid(move, player);
+    is_valid(move.front(), player);
   }
 
   void is_valid(char move, char player) {
