@@ -37,6 +37,7 @@ public:
 private:
   char playerX = 'X';
   char playerO = 'O';
+  int turnCount = 0;
 
   void promptPlayer( char player) {
     string move;
@@ -57,7 +58,8 @@ private:
   }
 
   bool is_gameOver() {
-    char winner;
+    turnCount ++;
+    string winner;
     for (int i=0; i<9; i+=4) {
       for (int n=1; n<5; n++) {
         if (i!=4 && (n==2 || n==4)) {
@@ -79,7 +81,12 @@ private:
           }
         }
       }
-    }return true;
+    }if (turnCount > 9) {
+      winner = "draw";
+      return false;
+    }else {
+      return true;
+    }
   }
 };
 
